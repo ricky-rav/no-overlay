@@ -1,0 +1,22 @@
+apiVersion: frrk8s.metallb.io/v1beta1
+kind: FRRConfiguration
+metadata:
+  name: external-rr
+  namespace: openshift-frr-k8s
+  labels:
+    network: default
+spec:
+  bgp:
+    routers:
+    - asn: 64512
+      neighbors:
+      - address: 192.168.111.1
+        asn: 64512
+        disableMP: true
+        dualStackAddressFamily: false
+        toReceive:
+          allowed:
+            mode: filtered
+            prefixes:
+            - ge: 23
+              prefix: 10.128.0.0/14

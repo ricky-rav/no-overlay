@@ -1,0 +1,16 @@
+apiVersion: operator.openshift.io/v1
+kind: Network
+metadata:
+  name: cluster
+spec:
+  additionalRoutingCapabilities:
+    providers:
+    - FRR
+  defaultNetwork:
+    ovnKubernetesConfig:
+      routeAdvertisements: Enabled
+      defaultNetworkTransport: NoOverlay
+      defaultNetworkNoOverlayOptions:
+        outboundSNAT: Enabled
+        routing: Unmanaged
+    type: OVNKubernetes
