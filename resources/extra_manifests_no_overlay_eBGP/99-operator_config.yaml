@@ -9,8 +9,8 @@ spec:
   defaultNetwork:
     ovnKubernetesConfig:
       routeAdvertisements: Enabled
-      defaultNetworkTransport: NoOverlay
-      defaultNetworkNoOverlayOptions:
+      transport: NoOverlay
+      noOverlayConfig:
         outboundSNAT: Enabled
         routing: Unmanaged
     type: OVNKubernetes
